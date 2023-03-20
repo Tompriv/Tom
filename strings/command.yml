@@ -29,7 +29,7 @@ DELETEPLAYLIST_COMMAND : ["deleteplaylist", "حذف القائمه"]
 
 # Tools
 QUEUE_COMMAND : ["queue","cqueue", "player", "cplayer", "playing", "cplaying"]
-SONG_COMMAND : ["song", "تنزيل"]
+SONG_COMMAND : ["song", "تنزيل", "يوتيوب"]
 LYRICS_COMMAND : ["lyrics", "كلمات"]
 TAG_COMMAND : ["@all"]
 TAG_COMMAND_STOP : ["all stop"]
