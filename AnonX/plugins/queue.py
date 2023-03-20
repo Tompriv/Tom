@@ -1,7 +1,7 @@
 import asyncio
 import os
 from random import randint
-
+from strings.filters import command
 from pyrogram import filters
 from pyrogram.errors import FloodWait
 from pyrogram.types import CallbackQuery, InputMediaPhoto, Message
@@ -43,7 +43,9 @@ def get_duration(playing):
 
 
 @app.on_message(
-    filters.command(QUEUE_COMMAND) & filters.group & ~BANNED_USERS
+    command(QUEUE_COMMAND)
+    & filters.group
+    & ~BANNED_USERS
 )
 @language
 async def ping_com(client, message: Message, _):

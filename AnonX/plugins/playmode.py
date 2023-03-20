@@ -1,6 +1,6 @@
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup, Message
-
+from strings.filters import command
 from config import BANNED_USERS
 from strings import get_command
 from AnonX import app
@@ -14,9 +14,8 @@ PLAYMODE_COMMAND = get_command("PLAYMODE_COMMAND")
 
 
 @app.on_message(
-    filters.command(PLAYMODE_COMMAND)
+    command(PLAYMODE_COMMAND)
     & filters.group
-    & ~filters.edited
     & ~BANNED_USERS
 )
 @language

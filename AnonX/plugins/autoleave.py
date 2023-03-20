@@ -6,7 +6,7 @@ from AnonX import app
 from AnonX.core.call import Anon, autoend
 from AnonX.utils.database import (get_client, is_active_chat,
                                        is_autoend)
-
+from strings.filters import command
 
 async def auto_leave():
     if config.AUTO_LEAVING_ASSISTANT == str(True):

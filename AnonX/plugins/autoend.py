@@ -6,12 +6,15 @@ from AnonX import app
 from AnonX.misc import SUDOERS
 from AnonX.utils.database import autoend_off, autoend_on
 from AnonX.utils.decorators.language import language
-
+from strings.filters import command
 # Commands
 AUTOEND_COMMAND = get_command("AUTOEND_COMMAND")
 
 
-@app.on_message(filters.command(AUTOEND_COMMAND) & SUDOERS)
+@app.on_message(
+    command(AUTOEND_COMMAND)
+    & SUDOERS
+)
 async def auto_end_stream(client, message):
     usage = "**ᴜsᴀɢᴇ:**\n\n/autoend [enable|disable]"
     if len(message.command) != 2:

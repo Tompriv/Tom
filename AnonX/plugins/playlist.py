@@ -1,6 +1,6 @@
 import os
 from random import randint
-
+from strings.filters import command
 from pykeyboard import InlineKeyboard
 from pyrogram import filters
 from pyrogram.types import (InlineKeyboardButton,
@@ -26,8 +26,7 @@ DELETEPLAYLIST_COMMAND = get_command("DELETEPLAYLIST_COMMAND")
 
 
 @app.on_message(
-    filters.command(PLAYLIST_COMMAND)
-    & ~filters.edited
+    command(PLAYLIST_COMMAND)
     & ~BANNED_USERS
 )
 @language
@@ -61,9 +60,8 @@ async def check_playlist(client, message: Message, _):
 
 
 @app.on_message(
-    filters.command(DELETEPLAYLIST_COMMAND)
+    command(DELETEPLAYLIST_COMMAND)
     & filters.group
-    & ~filters.edited
     & ~BANNED_USERS
 )
 @language

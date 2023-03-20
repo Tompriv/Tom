@@ -8,15 +8,14 @@ from AnonX.core.call import Anon
 from AnonX.utils.database import set_loop
 from AnonX.utils.decorators import AdminRightsCheck
 from AnonX.utils.inline.play import close_keyboard
-
+from strings.filters import command
 # Commands
 STOP_COMMAND = get_command("STOP_COMMAND")
 
 
 @app.on_message(
-    filters.command(STOP_COMMAND)
+    command(STOP_COMMAND)
     & filters.group
-    & ~filters.edited
     & ~BANNED_USERS
 )
 @AdminRightsCheck

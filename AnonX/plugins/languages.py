@@ -8,7 +8,7 @@ from AnonX import app
 from AnonX.utils.database import get_lang, set_lang
 from AnonX.utils.decorators import (ActualAdminCB, language,
                                          languageCB)
-
+from strings.filters import command
 # Languages Available
 
 
@@ -68,16 +68,16 @@ async def language_markup(client, CallbackQuery, _):
     old = await get_lang(CallbackQuery.message.chat.id)
     if str(old) == str(langauge):
         return await CallbackQuery.answer(
-            "ʏᴏᴜ'ʀᴇ ᴀʟʀᴇᴀᴅʏ ᴜsɪɴɢ sᴀᴍᴇ ʟᴀɴɢᴜᴀɢᴇ ғᴏʀ ᴛʜɪs ᴄʜᴀᴛ.", show_alert=True
+            "بالفعل انت تستخدم هذه اللغة في هذه الدردشه.", show_alert=True
         )
     try:
         _ = get_string(langauge)
         await CallbackQuery.answer(
-            "sᴜᴄᴄᴇssғᴜʟʟʏ ᴄʜᴀɴɢᴇᴅ ʏᴏᴜʀ ʟᴀɴɢᴜᴀɢᴇ.", show_alert=True
+            "تم تغيير اللغة بنجاح.", show_alert=True
         )
     except:
         return await CallbackQuery.answer(
-            "ғᴀɪʟᴇᴅ ᴛᴏ ᴄʜᴀɴɢᴇ ʟᴀɴɢᴜᴀɢᴇ ᴏʀ ᴛʜᴇ ʟᴀɴɢᴜᴀɢᴇ ɪs ᴜɴᴅᴇʀ ᴍᴀɪɴᴛᴇɴᴀɴᴄᴇ.",
+            "فشل تغيير اللغة هذه اللغة تحت الصيانه.",
             show_alert=True,
         )
     await set_lang(CallbackQuery.message.chat.id, langauge)

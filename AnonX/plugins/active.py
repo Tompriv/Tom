@@ -6,13 +6,16 @@ from AnonX import app
 from AnonX.misc import SUDOERS
 from AnonX.utils.database.memorydatabase import (
     get_active_chats, get_active_video_chats)
-
+from strings.filters import command
 # Commands
 ACTIVEVC_COMMAND = get_command("ACTIVEVC_COMMAND")
 ACTIVEVIDEO_COMMAND = get_command("ACTIVEVIDEO_COMMAND")
 
 
-@app.on_message(filters.command(ACTIVEVC_COMMAND) & SUDOERS)
+@app.on_message(
+    command(ACTIVEVC_COMMAND)
+    & SUDOERS
+)
 async def activevc(_, message: Message):
     mystic = await message.reply_text(
         "ɢᴇᴛᴛɪɴɢ ᴀᴄᴛɪᴠᴇ ᴠᴏɪᴄᴇᴄʜᴀᴛs ʟɪsᴛ..."
@@ -40,7 +43,10 @@ async def activevc(_, message: Message):
         )
 
 
-@app.on_message(filters.command(ACTIVEVIDEO_COMMAND) & SUDOERS)
+@app.on_message(
+    command(ACTIVEVIDEO_COMMAND)
+    & SUDOERS
+)
 async def activevi_(_, message: Message):
     mystic = await message.reply_text(
         "ɢᴇᴛᴛɪɴɢ ᴀᴄᴛɪᴠᴇ ᴠɪᴅᴇᴏᴄʜᴀᴛs ʟɪsᴛ..."

@@ -37,6 +37,7 @@ PLAY_COMMAND = get_command("PLAY_COMMAND")
     & filters.group
     & ~BANNED_USERS
 )
+)
 @PlayWrapper
 async def play_commnd(
     client,
@@ -51,7 +52,7 @@ async def play_commnd(
 ):
     if not await is_served_user(message.from_user.id):
         await message.reply_text(
-            text="ᴇʀʀᴏʀ, ʏᴏᴜ'ʀᴇ ɴᴏᴛ ᴀ ᴠᴇʀɪғɪᴇᴅ ᴜsᴇʀ.\nᴘʟᴇᴀsᴇ ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ᴛᴏ ᴠᴇʀɪғʏ ʏᴏᴜʀsᴇʟғ.",
+            text="😢 عزيزي انت غير موثق في بيانات cr .\n☔ من فضلك استخدم /verify لتوثيق نفسك في بيانات افاتار.",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [

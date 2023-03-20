@@ -13,7 +13,7 @@ from pyrogram.types import (InlineKeyboardButton,
 
 from AnonX import app
 from AnonX.misc import SUDOERS
-
+from strings.filters import command
 
 async def aexec(code, client, message):
     exec(

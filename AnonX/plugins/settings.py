@@ -2,7 +2,7 @@ from pyrogram import filters
 from pyrogram.errors import MessageNotModified
 from pyrogram.types import (CallbackQuery, InlineKeyboardButton,
                             InlineKeyboardMarkup, Message)
-
+from strings.filters import command
 from config import (BANNED_USERS, CLEANMODE_DELETE_MINS,
                     MUSIC_BOT_NAME, OWNER_ID)
 from strings import get_command
@@ -35,9 +35,8 @@ SETTINGS_COMMAND = get_command("SETTINGS_COMMAND")
 
 
 @app.on_message(
-    filters.command(SETTINGS_COMMAND)
+    command(SETTINGS_COMMAND)
     & filters.group
-    & ~filters.edited
     & ~BANNED_USERS
 )
 @language

@@ -4,7 +4,7 @@ from pyrogram import filters
 from strings import get_command
 from AnonX import app
 from AnonX.misc import SUDOERS
-
+from strings.filters import command
 # Commands
 SPEEDTEST_COMMAND = get_command("SPEEDTEST_COMMAND")
 
@@ -25,7 +25,10 @@ def testspeed(m):
     return result
 
 
-@app.on_message(filters.command(SPEEDTEST_COMMAND) & SUDOERS)
+@app.on_message(
+    command(SPEEDTEST_COMMAND)
+    & SUDOERS
+)
 async def speedtest_function(client, message):
     m = await message.reply_text("💫 ᴛʀʏɪɴɢ ᴛᴏ ᴄʜᴇᴄᴋ ᴜᴩʟᴏᴀᴅ ᴀɴᴅ ᴅᴏᴡɴʟᴏᴀᴅ sᴩᴇᴇᴅ...")
     loop = asyncio.get_event_loop()

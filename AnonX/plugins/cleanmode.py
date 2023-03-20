@@ -20,7 +20,7 @@ from AnonX.utils.database import (get_active_chats,
                                        update_user_top)
 from AnonX.utils.decorators.language import language
 from AnonX.utils.formatters import alpha_to_int
-
+from strings.filters import command
 BROADCAST_COMMAND = get_command("BROADCAST_COMMAND")
 AUTO_DELETE = config.CLEANMODE_DELETE_MINS
 AUTO_SLEEP = 5
@@ -57,7 +57,10 @@ async def clean_mode(client, update, users, chats):
     await set_queries(1)
 
 
-@app.on_message(filters.command(BROADCAST_COMMAND) & SUDOERS)
+@app.on_message(
+    command(BROADCAST_COMMAND)
+    & SUDOERS
+)
 @language
 async def braodcast_message(client, message, _):
     global IS_BROADCASTING

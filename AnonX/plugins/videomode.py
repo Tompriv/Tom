@@ -7,12 +7,15 @@ from AnonX import app
 from AnonX.misc import SUDOERS
 from AnonX.utils.database import add_off, add_on
 from AnonX.utils.decorators.language import language
-
+from strings.filters import command
 # Commands
 VIDEOMODE_COMMAND = get_command("VIDEOMODE_COMMAND")
 
+@app.on_message(
+    command(VIDEOMODE_COMMAND)
+    & SUDOERS
+)
 
-@app.on_message(filters.command(VIDEOMODE_COMMAND) & SUDOERS)
 @language
 async def videoloaymode(client, message: Message, _):
     usage = _["vidmode_1"]

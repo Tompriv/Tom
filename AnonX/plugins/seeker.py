@@ -2,7 +2,7 @@ import asyncio
 
 from AnonX.misc import db
 from AnonX.utils.database import get_active_chats, is_music_playing
-
+from strings.filters import command
 
 async def timer():
     while not await asyncio.sleep(1):

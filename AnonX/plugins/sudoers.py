@@ -7,7 +7,7 @@ from AnonX import app
 from AnonX.misc import SUDOERS
 from AnonX.utils.database import add_sudo, remove_sudo
 from AnonX.utils.decorators.language import language
-
+from strings.filters import command
 # Command
 ADDSUDO_COMMAND = get_command("ADDSUDO_COMMAND")
 DELSUDO_COMMAND = get_command("DELSUDO_COMMAND")
@@ -15,7 +15,8 @@ SUDOUSERS_COMMAND = get_command("SUDOUSERS_COMMAND")
 
 
 @app.on_message(
-    filters.command(ADDSUDO_COMMAND) & filters.user(OWNER_ID)
+    command(ADDSUDO_COMMAND)
+    & filters.user(OWNER_ID)
 )
 @language
 async def useradd(client, message: Message, _):
@@ -61,7 +62,8 @@ async def useradd(client, message: Message, _):
 
 
 @app.on_message(
-    filters.command(DELSUDO_COMMAND) & filters.user(OWNER_ID)
+    command(DELSUDO_COMMAND)
+    & filters.user(OWNER_ID)
 )
 @language
 async def userdel(client, message: Message, _):
@@ -96,7 +98,10 @@ async def userdel(client, message: Message, _):
     await message.reply_text(f"sᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ ᴡʀᴏɴɢ.")
 
 
-@app.on_message(filters.command(SUDOUSERS_COMMAND) & ~BANNED_USERS)
+@app.on_message(
+    command(SUDOUSERS_COMMAND)
+    & ~BANNED_USERS
+)
 @language
 async def sudoers_list(client, message: Message, _):
     text = _["sudo_5"]
