@@ -1,6 +1,6 @@
 import os
 import re
-from strings.filters import command
+
 import yt_dlp
 from pykeyboard import InlineKeyboard
 from pyrogram import filters
@@ -24,8 +24,9 @@ SONG_COMMAND = get_command("SONG_COMMAND")
 
 
 @app.on_message(
-    command(SONG_COMMAND)
+    filters.command(SONG_COMMAND)
 )
+@language
 async def song_commad_private(client, message: Message, _):
     await message.delete()
     url = await YouTube.url(message)
