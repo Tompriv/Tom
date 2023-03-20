@@ -15,7 +15,7 @@ from AnonX import YouTube, app
 from AnonX.utils.decorators.language import language, languageCB
 from AnonX.utils.formatters import convert_bytes
 from AnonX.utils.inline.song import song_markup
-
+from strings.filters import command
 # Command
 SONG_COMMAND = get_command("SONG_COMMAND")
 
@@ -24,7 +24,7 @@ SONG_COMMAND = get_command("SONG_COMMAND")
 
 
 @app.on_message(
-    filters.command(SONG_COMMAND)
+    command(SONG_COMMAND)
 )
 @language
 async def song_commad_private(client, message: Message, _):
