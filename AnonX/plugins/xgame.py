@@ -4,7 +4,7 @@ from strings import get_command
 from strings.filters import command
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery 
 from typing import Union
-from AlexaMusic import app
+from AnonX import app
 import re
 import sys
 
