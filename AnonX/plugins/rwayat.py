@@ -11,13 +11,13 @@ from pyrogram import Client, filters
 from pyrogram import filters
 from strings import get_command
 from strings.filters import command
-from AlexaMusic import app
+from AnonX import app
 from config.config import OWNER_ID
-from AlexaMusic.misc import SUDOERS
+from AnonX.misc import SUDOERS
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, ReplyKeyboardMarkup
 from pyrogram.types import (InlineKeyboardButton,CallbackQuery,InlineKeyboardMarkup, Message)
-from AlexaMusic import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
-from AlexaMusic.misc import SUDOERS
+from AnonX import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
+from AnonX.misc import SUDOERS
 
 
 @app.on_callback_query(filters.regex("^روايات"))
