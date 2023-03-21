@@ -12,7 +12,7 @@ from typing import Union
 
 from pyrogram.types import InlineKeyboardButton
 
-from config import GITHUB_REPO, SUPPORT_CHANNEL, SUPPORT_GROUP
+from config import SUPPORT_CHANNEL, SUPPORT_GROUP
 from AnonX import app
 import config
 from strings import get_command, get_string
