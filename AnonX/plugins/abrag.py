@@ -5,7 +5,7 @@ from pyrogram import filters
 from strings import get_command
 from strings.filters import command
 from AnonX import app
-from config.config import OWNER_ID
+from config import OWNER_ID
 from AnonX.misc import SUDOERS
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, ReplyKeyboardMarkup
 from pyrogram.types import (InlineKeyboardButton,CallbackQuery,InlineKeyboardMarkup, Message)
