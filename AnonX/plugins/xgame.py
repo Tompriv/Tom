@@ -308,7 +308,7 @@ async def kaompj(client, message):
 )
 async def zohary(client: Client, message: Message):
     await message.reply_photo(
-        photo=f"https://telegra.ph/file/aa84897eb42d6b4fb96d5.jpg",
+        photo=f"https://telegra.ph/file/e7bb54b34faadd2c9b199.jpg",
         caption= GAME_MESSAGE,
         reply_markup=InlineKeyboardMarkup(GAME_BUTTONS)
     )  
