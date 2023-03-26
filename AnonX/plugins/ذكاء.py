@@ -41,7 +41,7 @@ def reply_gpt(client, message):
         message_id = message.reply_to_message.message_id
     else:
         message_id = None
-    client.send_message(chat_id=chat_id, text=reply_text + "\n\n\n تم استخدام أحدث إصدار من الذكاء الاصطناعي 3.5 turbo\n  شكرا للمطور توم @DEV_TOM}", reply_to_message_id=message_id)
+    client.send_message(chat_id=chat_id, text=reply_text + "\n\n\n تم استخدام أحدث إصدار من الذكاء الاصطناعي 3.5 turbo\n  شكرا للمطور توم @DEV_TOM", reply_to_message_id=message_id)
 
 @app.on_message(filters.command("gpt"))
 def reply(client, message):
