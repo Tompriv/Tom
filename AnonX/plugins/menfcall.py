@@ -7,7 +7,7 @@ from AnonX.core.call import Anon
 from AnonX.utils.database import *
 from pytgcalls.exceptions import (NoActiveGroupCall,TelegramServerError)
 
-@app.on_message(filters.regex("^مين في الكول$"))
+@app.on_message(filters.regex("مين في الكول"))
 async def strcall(client, message):
     assistant = await group_assistant(Yukki,message.chat.id)
     try:

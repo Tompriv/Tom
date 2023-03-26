@@ -42,7 +42,7 @@ async def mmmezat(client, message):
         await message.reply_text(f"""**مرحبآ بك عزيزي » {message.from_user.mention}**في قسم مميزات سورس cr ميوزك\n
 ⩹━★⊷⌯⌞ 𝘾𝙍 • 𝙎𝙊𝙐𝙍𝘾𝙀 ⌝⌯⊶★━⩺
 
-★قايمه مميزات سورس فيجا 
+★قايمه مميزات سورس cr 
 
 ★ميزه ⦂ المطور بيجيب المطور البوت 
 ★ميزه ⦂ تبيه بفتح+قفل الكول
@@ -78,7 +78,7 @@ async def mmmezat(client, message):
 ★ميزه ⦂ خروج المساعد من جروبات لعدم تقطيع صوت..البوت
 ★ميزه ⦂ اسال/اصراحه
 ★ميزه ⦂ نكت
-★ميزه ⦂ زخرفه 
+★ميزه ⦂ ذكاء اصتناعي 
 ★ميزه ⦂ مميزات. بيجبلك مميزات موجوده فسورس 
 ★ميزه ⦂ رفع و تنزيل مطور 
 ★ميزه ⦂ افلام
@@ -98,7 +98,7 @@ async def mmmezat(client, message):
                         "★⌞ 𝘾𝙍 • 𝙎𝙊𝙐𝙍𝘾𝙀 ⌝⚡", url=f"https://t.me/pp_g3"),                        
                  ],[
                 InlineKeyboardButton(
-                        "◁", callback_data="close"),
+                        "close", callback_data="close"),
                ],
           ]
         ),
