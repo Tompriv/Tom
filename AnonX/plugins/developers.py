@@ -21,18 +21,18 @@ from random import  choice, randint
                 
                 
 @app.on_message(
-    command(["مطورين سي ار","المطورين","مطورين","المطور","مطور","مطورين cr"])
+    command(["مطورين سي ار","المطورين","مطورين","مطورين cr"])
     & ~filters.edited
 )
 async def huhh(client: Client, message: Message):
     await message.reply_photo(
         photo=f"https://telegra.ph/file/be8fb2f02cf57e1725ccd.jpg",
-        caption=f"""**⩹━★⊷━⌞ 𝘾𝙍 • 𝙎𝙊𝙐𝙍𝘾𝙀 ⌝━⊶★━⩺**\nمرحبا بك عزيزي {message.from_user.mention} في قسم مطورين افاتار ميوزك\nللتحدث مع مطورين اضغط علي الازرار بالاسفل👇\n**⩹━★⊷━⌞ 𝘾𝙍 • 𝙎𝙊𝙐𝙍𝘾𝙀 ⌝━⊶★━⩺**""",
+        caption=f"""**⩹━★⊷━⌞ 𝘾𝙍 • 𝙎𝙊𝙐𝙍𝘾𝙀 ⌝━⊶★━⩺**\nمرحبا بك عزيزي {message.from_user.mention} في قسم مطورين cr ميوزك\nللتحدث مع مطورين اضغط علي الازرار بالاسفل👇\n**⩹━★⊷━⌞ 𝘾𝙍 • 𝙎𝙊𝙐𝙍𝘾𝙀 ⌝━⊶★━⩺**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "᳒𝙏َِ𝙊َِ𝙈ِ⌯‹♱༄►", url=f"https://t.me/DEV_TOM"), 
+                        "᳒𝙏َِ𝙊َِ𝙈ِ⌯►", url=f"https://t.me/DEV_TOM"), 
                  ],[
                     InlineKeyboardButton(
                         "ρ᥆kᥱꪔ᥆ꪀ", url=f"https://t.me/devpokemon"),
@@ -121,3 +121,35 @@ async def yas(client, message):
             ]
         ),
     )
+    
+
+
+@app.on_message(
+    command(["/api"])
+    & ~filters.edited
+    
+)
+async def huhh(client: Client, message: Message):
+    await message.reply_photo(
+        photo=f"https://telegra.ph/file/be8fb2f02cf57e1725ccd.jpg",
+        caption=f"""**⩹⊷━⌞ 𝘾𝙍 • 𝙎𝙊𝙐𝙍𝘾𝙀 ⌝━━⩺**\nمرحبا بك عزيزي {message.from_user.mention} في قسم الذكاء الاصتناعي الخاص بسورس cr\nلتتمكن من استخدام اوامر الذكاء الاصتناعي اكتب \n /gpt + السؤال بالاسفل👇\n**⩹━━⌞ 𝘾𝙍 • 𝙎𝙊𝙐𝙍𝘾𝙀 ⌝━━⩺**""",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "᳒𝙏َِ𝙊َِ𝙈ِ⌯‹", url=f"https://t.me/DEV_TOM"), 
+                 ],[
+                
+                    InlineKeyboardButton(
+                        "★⌞ 𝘾𝙍 • 𝙎𝙊𝙐𝙍𝘾𝙀 ⌝⚡", url=f"https://t.me/pp_g3"),
+                ],
+
+            ]
+
+        ),
+
+    )
+
+
+
+    
