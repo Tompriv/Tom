@@ -1,7 +1,7 @@
 {
-    "name": "⌞ 𝘾𝙍 • 𝙎𝙊𝙐𝙍𝘾𝙀 ⌝",
+    "name": "ᴀɴᴏɴ ダ ᴍᴜsɪᴄ",
     "description": "A Telegram Music Player Bot, written in Python with Pyrogram and Py-Tgcalls.",
-    "logo": "https://telegra.ph/file/e7bb54b34faadd2c9b199.jpg",
+    "logo": "https://telegra.ph/file/56d1760224589ee370186.jpg",
     "keywords": [
     "python3",
     "telegram",
@@ -12,17 +12,17 @@
     "pyrogram"
     ],
     "env": {
-      "API_ID": {
+      "ايبي ايدي ": {
         "description": "Get this value from https://my.telegram.org",
         "value": "",
         "required": true
       },
-      "API_HASH": {
+      "ايبي هاش": {
         "description": "Get this value from https://my.telegram.org",
         "value": "",
         "required": true
       },
-      "BOT_TOKEN": {
+      "توكن البوت": {
         "description": "A Bot's token from Botfather",
         "value": "",
         "required": true
@@ -32,17 +32,17 @@
         "value": "mongodb+srv://bot_vambir:Al2552001@cluster0.heabj.mongodb.net/vambir_bot?retryWrites=true&w=majority",
         "required": false
       },
-      "MUSIC_BOT_NAME": {
+      "اسم البوت": {
         "description": "A name for your Music Bot. You can use special characters bot ko jhaat farak ni padega",
-        "value": "⌞ 𝘾𝙍 • 𝙎𝙊𝙐𝙍𝘾𝙀 ⌝",
+        "value": "ᴀɴᴏɴ ダ ᴍᴜsɪᴄ",
         "required": true
       },
-      "OWNER_ID": {
+      "ايدي المطور": {
         "description": "The user id(s) of user(s) whom you would like to add as a OWNER. Multiple values shall be seperated with a space.",
         "value": "",
         "required": true
       },
-      "STRING_SESSION": {
+      "جلسة بايروجرام": {
         "description": "A Pyrogram String Session. One Assistant is Compulsory.",
         "value": "",
         "required": true
@@ -57,8 +57,8 @@
         "value": "",
         "required": false
       },
-      "LOG_GROUP_ID": {
-        "description": "Your Log Group ID, add your bot and promote as an admin with full rights!. Channel ki id mat daal dena bsdk.",
+      "ايدي جروب الدعم": {
+        "description": "دخل البوت والمساعد في حروب وارفعهم ادمن وحط الايدي هنا.",
         "value": "",
         "required": true
       }
