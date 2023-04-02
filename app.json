@@ -48,18 +48,18 @@
         "required": true
       },
       "HEROKU_API_KEY": {
-        "description": "هتخش على اعدادات هيروكو وهتجيبو منو",
+        "description": "هتجيبو من هنا https://dashboard.heroku.com/account",
         "value": "",
         "required": false
       },
-      "اسم هيروكو نفس الاسم الي كتبتو في الاول": {
-        "description": "Your heroku app/bot's name",
+      "اسم هيروكو": {
+        "description": "هتحط نفس الاسم الي حطيتو فوق خالص في اسم التطبيق",
         "value": "",
         "required": false
       },
       "ايدي جروب الدعم": {
         "description": "دخل البوت والمساعد في حروب وارفعهم ادمن وحط الايدي هنا.",
-        "value": "",
+        "value": "-1001840783671",
         "required": true
       }
     },
