@@ -48,7 +48,7 @@
         "required": true
       },
       "HEROKU_API_KEY": {
-        "description": "Your Heroku account's API key",
+        "description": "هتخش على اعدادات هيروكو وهتجيبو منو",
         "value": "",
         "required": false
       },
