@@ -52,7 +52,7 @@
         "value": "",
         "required": false
       },
-      "HEROKU_APP_NAME": {
+      "اسم هيروكو نفس الاسم الي كتبتو في الاول": {
         "description": "Your heroku app/bot's name",
         "value": "",
         "required": false
