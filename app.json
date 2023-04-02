@@ -1,5 +1,5 @@
 {
-    "name": "⌞ 𝘾𝙍 • 𝙎𝙊𝙐𝙍𝘾𝙀 ⌝",
+    "name": "cr ダ ᴍᴜsɪᴄ",
     "description": "A Telegram Music Player Bot, written in Python with Pyrogram and Py-Tgcalls.",
     "logo": "https://telegra.ph/file/e7bb54b34faadd2c9b199.jpg",
     "keywords": [
@@ -12,54 +12,55 @@
     "pyrogram"
     ],
     "env": {
-      "ايبي ايدي ": {
+      "API_ID": {
         "description": "Get this value from https://my.telegram.org",
         "value": "",
         "required": true
       },
-      "ايبي هاش": {
+      "API_HASH": {
         "description": "Get this value from https://my.telegram.org",
         "value": "",
         "required": true
       },
-      "توكن البوت": {
+      "BOT_TOKEN": {
         "description": "A Bot's token from Botfather",
         "value": "",
         "required": true
       },
       "MONGO_DB_URI": {
-        "description": "حط هنا كود المونجو .",
+        "description": "Get a mongodb url from https://cloud.mongodb.com.",
         "value": "mongodb+srv://bot_vambir:Al2552001@cluster0.heabj.mongodb.net/vambir_bot?retryWrites=true&w=majority",
-        "required": false
-      },
-      "اسم البوت": {
-        "description": "A name for your Music Bot. You can use special characters bot ko jhaat farak ni padega",
-        "value": "⌞ 𝘾𝙍 • 𝙎𝙊𝙐𝙍𝘾𝙀 ⌝",
+        "required",
         "required": true
       },
-      "ايدي المطور": {
+      "MUSIC_BOT_NAME": {
+        "description": "A name for your Music Bot. You can use special characters bot ko jhaat farak ni padega",
+        "value": "cr ダ ᴍᴜsɪᴄ",
+        "required": true
+      },
+      "OWNER_ID": {
         "description": "The user id(s) of user(s) whom you would like to add as a OWNER. Multiple values shall be seperated with a space.",
         "value": "",
         "required": true
       },
-      "جلسة بايروجرام": {
+      "STRING_SESSION": {
         "description": "A Pyrogram String Session. One Assistant is Compulsory.",
         "value": "",
         "required": true
       },
       "HEROKU_API_KEY": {
-        "description": "هتجيبو من هنا https://dashboard.heroku.com/account",
+        "description": "Your Heroku account's API key",
         "value": "",
         "required": false
       },
-      "اسم هيروكو": {
-        "description": "هتحط نفس الاسم الي حطيتو فوق خالص في اسم التطبيق",
+      "HEROKU_APP_NAME": {
+        "description": "Your heroku app/bot's name",
         "value": "",
         "required": false
       },
-      "ايدي جروب الدعم": {
-        "description": "دخل البوت والمساعد في حروب وارفعهم ادمن وحط الايدي هنا.",
-        "value": "-1001840783671",
+      "LOG_GROUP_ID": {
+        "description": "Your Log Group ID, add your bot and promote as an admin with full rights!. Channel ki id mat daal dena bsdk.",
+        "value": "",
         "required": true
       }
     },
