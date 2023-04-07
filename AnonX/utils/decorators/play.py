@@ -7,7 +7,6 @@ from AnonX.misc import SUDOERS
 from AnonX.utils.database import (get_cmode, get_lang,
                                        get_playmode, get_playtype,
                                        is_active_chat,
-                                       is_commanddelete_on,
                                        is_served_private_chat)
 from AnonX.utils.database.memorydatabase import is_maintenance
 from AnonX.utils.inline.playlist import botplaylist_markup
@@ -18,7 +17,7 @@ def PlayWrapper(command):
         if await is_maintenance() is False:
             if message.from_user.id not in SUDOERS:
                 return await message.reply_text(
-                    "» البوت تحت الصيانه. من فضلك انتظر بعض الوقت..."
+                    "» ʙᴏᴛ ɪs ᴜɴᴅᴇʀ ᴍᴀɪɴᴛᴇɴᴀɴᴄᴇ ғᴏʀ sᴏᴍᴇ ᴛɪᴍᴇ, ᴩʟᴇᴀsᴇ ᴠɪsɪᴛ sᴜᴩᴩᴏʀᴛ ᴄʜᴀᴛ ᴛᴏ ᴋɴᴏᴡ ᴛʜᴇ ʀᴇᴀsᴏɴ..."
                 )
         if PRIVATE_BOT_MODE == str(True):
             if not await is_served_private_chat(message.chat.id):
@@ -26,11 +25,6 @@ def PlayWrapper(command):
                     "**ᴩʀɪᴠᴀᴛᴇ ᴍᴜsɪᴄ ʙᴏᴛ**\n\nᴏɴʟʏ ғᴏʀ ᴛʜᴇ ᴄʜᴀᴛs ᴀᴜᴛʜᴏʀɪsᴇᴅ ʙʏ ᴛʜᴇ ᴏᴡɴᴇʀ. ʀᴇǫᴜᴇsᴛ ɪɴ ᴍʏ ᴏᴡɴᴇʀ's ᴩᴍ ᴛᴏ ᴀᴜᴛʜᴏʀɪsᴇ ʏᴏᴜʀ ᴄʜᴀᴛ ғᴏʀ ᴜsɪɴɢ ᴍᴇ."
                 )
                 return await app.leave_chat(message.chat.id)
-        if await is_commanddelete_on(message.chat.id):
-            try:
-                await message.delete()
-            except:
-                pass
         language = await get_lang(message.chat.id)
         _ = get_string(language)
         audio_telegram = (
@@ -64,7 +58,7 @@ def PlayWrapper(command):
                     caption=_["playlist_1"],
                     reply_markup=InlineKeyboardMarkup(buttons),
                 )
-        if message.command[0][0] == "c" or message.command[0][0] == "ق":
+        if message.command[0][0] == "c":
             chat_id = await get_cmode(message.chat.id)
             if chat_id is None:
                 return await message.reply_text(_["setting_12"])

@@ -13,7 +13,7 @@ from AnonX.utils.database import (get_authuser_names, get_cmode,
 from ..formatters import int_to_alpha
 
 
-def AdminRightsCheck(mystic):
+def AdminRightsCheckk(mystic):
     async def wrapper(client, message):
         if await is_maintenance() is False:
             if message.from_user.id not in SUDOERS:
@@ -43,16 +43,7 @@ def AdminRightsCheck(mystic):
         if not await is_active_chat(chat_id):
             return await message.reply_text(_["general_6"])
         is_non_admin = await is_nonadmin_chat(message.chat.id)
-        if not is_non_admin:
-            if message.from_user.id not in SUDOERS:
-                admins = adminlist.get(message.chat.id)
-                if not admins:
-                    return await message.reply_text(_["admin_18"])
-                else:
-                    if message.from_user.id not in admins:
-                        return await message.reply_text(_["admin_19"])
         return await mystic(client, message, _, chat_id)
-
     return wrapper
 
 
