@@ -2,7 +2,7 @@ import requests
 
 import json
 
-from Anonx import app
+from AnonX import app
 
 from pyrogram import Client
 
@@ -72,11 +72,5 @@ def reply_gpt(client, message):
 
         message_id = None
 
-    client.send_message(chat_id=chat_id, text=reply_text + "\n\n\n╖ مرحبا عزيزي المستخدم\n
-
-️╢ لقد تم استخدام احدث اصدار من الذكاء الأصطناعي\n
-
-╢ اذا كنت تريد السؤال مجداا فلا تتردد في ذلك \n
-
-╜ تم تصميم هذا الكود بواسطة المبرمج توم @DEV_TOM ", reply_to_message_id=message_id)
+    client.send_message(chat_id=chat_id, text=reply_text + "\n\n\n╖ مرحبا عزيزي المستخدم\n╢ لقد تم استخدام احدث اصدار من الذكاء الأصطناعي\n╢ اذا كنت تريد السؤال مجداا فلا تتردد في ذلك \n╜ تم تصميم هذا الكود بواسطة المبرمج توم @DEV_TOM ", reply_to_message_id=message_id)
 
