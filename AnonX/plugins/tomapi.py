@@ -17,7 +17,7 @@ from pyrogram.errors import MessageNotModified
 
 @app.on_message(
     filters.command("cr")
-    & ~filters.private
+    
 )
 async def cr_source(client: Client, message: Message):
     await message.reply_photo(
