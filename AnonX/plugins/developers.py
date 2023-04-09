@@ -13,11 +13,8 @@ from AnonX import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
 from AnonX import app
 from random import  choice, randint
 
-#       #             #  #####  #####      ####
-#        #           #  #         #            #     #
-#          #        #  #####   #            #####     
-#           #    #    #          #     ##    #     #
-#              #       #####   ######   #     #
+
+             
                 
                 
 @app.on_message(
