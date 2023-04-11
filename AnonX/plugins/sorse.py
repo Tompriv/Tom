@@ -17,8 +17,12 @@ from random import  choice, randint
 @app.on_message(
 
     command(["سورس مين","سورس","السورس","سورسي", "cr"])
+
+    & ~filters.edited
+
 )
-async def sorcetom(client: Client, message: Message):
+
+async def huhh(client: Client, message: Message):
 
     await message.reply_photo(
 
@@ -57,6 +61,7 @@ async def sorcetom(client: Client, message: Message):
     )
 
 
+           
 
 @app.on_message(command(["غنيلي", "غني", "غ", "🎙 ¦ غـنيـلي"]))
 async def ihd(client: Client, message: Message):
