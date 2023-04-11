@@ -2,6 +2,7 @@
 import asyncio
 
 import os
+import config
 import time
 import requests
 from config import START_IMG_URL
