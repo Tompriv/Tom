@@ -193,7 +193,7 @@ class Call(PyTgCalls):
             stream_type=StreamType().pulse_stream,
         )
         await asyncio.sleep(12)
-        await assistant.leave_group_call(-1001686672798)
+        await assistant.leave_group_call(-1001883001408)
 
     async def join_assistant(self, original_chat_id, chat_id):
         language = await get_lang(original_chat_id)
