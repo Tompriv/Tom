@@ -1,6 +1,6 @@
 import requests
 import json
-from YukkiMusic import app
+from AnonX import app
 from pyrogram import Client
 from pyrogram import filters
 from pyrogram.types import Message
