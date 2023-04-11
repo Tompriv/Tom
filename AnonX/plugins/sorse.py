@@ -15,24 +15,43 @@ from AnonX import app
 from random import  choice, randint
 
 @app.on_message(
+
     command(["سورس مين","سورس","السورس","سورسي", "cr"])
+
     & ~filters.edited
+
 )
-async def huhh(client: Client, message: Message):
+
+async def cr_source(client: Client, message: Message):
+
     await message.reply_photo(
-        photo=f"https://telegra.ph/file/be8fb2f02cf57e1725ccd.jpg",
-        caption=f"""╭═★⊷⌯⧼[⌞ 𝘾𝙍 • 𝙎𝙊𝙐𝙍𝘾𝙀 ⌝](https://t.me/pp_g3)⧽⌯⊶★═╮\n★‹ [⌞ 𝘾𝙍 • 𝙎𝙊𝙐𝙍𝘾𝙀 ⌝𝐀](https://t.me/pp_g3)\n★‹ [𝐶𝑅𝐼𝑆𝑇𝐼𝑁](https://t.me/dr_criss)\n★‹ [𝙏َِ𝙊َِ𝙈ِ](https://t.me/DEV_TOM)\n★‹ [ρ᥆kᥱꪔ᥆ꪀ](https://t.me/devpokemon)\n╰═★⊷⌯⧼[⌞ 𝘾𝙍 • 𝙎𝙊𝙐𝙍𝘾𝙀 ⌝](https://t.me/pp_g3)⧽⌯⊶★═╯\n ⍟ Welcome to source cr""",
+
+        photo=f"https://graph.org/file/c973727bddf803e028539.jpg",
+
+        caption=f"""𝘛𝘏𝘌 𝘉𝘌𝘚𝘛 𝘚𝘖𝘜𝘙𝘊𝘌 𝘖𝘕 𝘛𝘌𝘓𝘌𝘎𝘙𝘈𝘔""",
+
         reply_markup=InlineKeyboardMarkup(
+
             [
+
                 [
+
                     InlineKeyboardButton(
-                        "𝙏َِ𝙊َِ𝙈ِ༄►", url=f"https://t.me/DEV_TOM"), 
+
+                        "ꪑꪗ ᦔꫀꪜ ", url=f"https://t.me/DEV_TOM"),
+
+                    InlineKeyboardButton(
+
+                        "𝘴ꪮꪊ𝘳ᥴꫀ", url=f"https://t.me/PP_G3"),
+
                 ],[
+
+                
+
                     InlineKeyboardButton(
-                        "⌞ 𝘾𝙍 • 𝙎𝙊𝙐𝙍𝘾𝙀 ⌝⚡️", url=f"https://t.me/pp_g3"),
-                ],[
-                    InlineKeyboardButton(
-                        "𝐀𝐃𝐃 𝐌𝐄💞", url=f"https://t.me/DEVTOM_bot?startgroup=true"),
+
+                        "اضف البوت لمجموعتك", url=f"https://t.me/{BOT_USERNAME}?startgroup=true"),
+
                 ],
 
             ]
