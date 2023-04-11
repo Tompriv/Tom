@@ -29,10 +29,10 @@ async def huhh(client: Client, message: Message):
                         "ꪑꪗ ᦔꫀꪜ", url=f"https://t.me/DEV_TOM"), 
                 
                     InlineKeyboardButton(
-                        "𝘴ꪮꪊ𝘳ᥴꫀ", url=f"https://t.me/pp_g3"),
+                        "ᧁ𝘳ꪮꪊρ ᥴ𝘳", url=f"https://t.me/SORS0Coo"),
                 ],[
                     InlineKeyboardButton(
-                        "اضف البوت لمجموعتك", url=f"https://t.me/{BOT_USERNAME}?startgroup=true"),
+                        "⌞ 𝘾𝙍 • 𝙎𝙊𝙐𝙍𝘾𝙀 ⌝", url=f"https://t.me/pp_g3"),
                 ],
 
             ]
