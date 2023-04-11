@@ -15,7 +15,7 @@ STATS_COMMAND : ["stats"]
 LANGUAGE_COMMAND : ["lang", "language", "langs", "لغه", "اللغه"]
 
 # Play Commands
-PLAY_COMMAND : ["play", "vplay", "cplay", "/cvplay", "playforce", "vplayforce", "cplayforce", "cvplayforce", "تشغيل", "#شغل", "فيديو", "#تشغيل", "/play", "/vplay", "cplay", "cvplay", "/شغل", "/تشغيل", "/ق تشغيل", "/ق شغل", "/فيديو", "تشغيل", "{NAME_BOT}", "#فيديو", "#فديو", "فديو"]
+PLAY_COMMAND : ["play", "vplay", "cplay", "/cvplay", "playforce", "vplayforce", "cplayforce", "cvplayforce", "تشغيل", "شغل", "فيديو", "#تشغيل", "/play", "/vplay", "cplay", "cvplay", "/شغل", "/تشغيل", "/ق تشغيل", "/ق شغل", "/فيديو", "تشغيل/", "{NAME_BOT}", "#فيديو", "#فديو", "فديو"]
 PLAY_COMMAND_chh : ["تشغيل", "فيديو"]
 STOP_COMMAND_chh : ["ايقاف"]
 PLAYMODE_COMMAND : ["playmode", "/وضع شغل", "وضع شغل", "/playmode"]
@@ -93,9 +93,9 @@ UNAUTHORIZE_COMMAND : ["unauthorize"]
 AUTHORIZED_COMMAND : ["authorized"]
 
 #Block Users Command
-BLOCK_COMMAND : ["block", "ح ظ"]
-UNBLOCK_COMMAND : ["unblock", "الغاء ح ظ"]
-BLOCKED_COMMAND : ["blockedusers", "قائمه الحظر"]
+BLOCK_COMMAND : ["block", "حظر"]
+UNBLOCK_COMMAND : ["unblock", "الغاء حظر"]
+BLOCKED_COMMAND : ["blockedusers", "المحظورين"]
 
 #sPEEDTEST
 SPEEDTEST_COMMAND : ["speedtest"]
@@ -105,6 +105,6 @@ ACTIVEVC_COMMAND : ["activevoice", "اونلاين"]
 ACTIVEVIDEO_COMMAND : ["activevideo"]
 
 #Gban Commands
-GBAN_COMMAND : ["gban", "ع ا"]
-UNGBAN_COMMAND : ["ungban", "ا ع"]
-GBANNED_COMMAND : ["gbannedusers", "ل ع"]
+GBAN_COMMAND : ["gban", "حظر عام"]
+UNGBAN_COMMAND : ["ungban", "الغاء الحظر العام"]
+GBANNED_COMMAND : ["gbannedusers", "المحظورين عام"]
