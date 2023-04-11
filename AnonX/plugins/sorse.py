@@ -17,12 +17,8 @@ from random import  choice, randint
 @app.on_message(
 
     command(["سورس مين","سورس","السورس","سورسي", "cr"])
-
-    & ~filters.edited
-
 )
-
-async def cr_source(client: Client, message: Message):
+async def sorcetom(client: Client, message: Message):
 
     await message.reply_photo(
 
