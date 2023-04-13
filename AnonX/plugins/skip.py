@@ -9,7 +9,7 @@ from AnonX.core.call import Anon
 from AnonX.misc import db
 from AnonX.utils.database import get_loop
 from AnonX.utils.decorators import AdminRightsCheck
-from AnonX.utils.decorators.adminss import AdminRightsCheckk
+from AnonX.utils.decorators.admins import AdminRightsCheckk
 from AnonX.utils.inline.play import (stream_markup,
                                           telegram_markup,
                                           close_keyboard)
