@@ -15,9 +15,7 @@ from pyrogram.errors import MessageNotModified
 
 
 
-@app.on_message(
-    filters.command("الاوامر")
-)
+@app.on_message(command("الاوامر"))
 async def cr_source(client: Client, message: Message):
     await message.reply_photo(
         photo=f"https://graph.org/file/c973727bddf803e028539.jpg",
