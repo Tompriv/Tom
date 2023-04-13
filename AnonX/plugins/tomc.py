@@ -4,7 +4,7 @@ import asyncio
 from pytgcalls import PyTgCalls, StreamType
 from pytgcalls.types.input_stream import AudioPiped, AudioVideoPiped
 from AnonX.core.call import Anon
-from AnonX.utils.database import *
+from AnonX.utils.database import is_call_active, add_active_call, remove_active_call
 from pytgcalls.exceptions import (NoActiveGroupCall,TelegramServerError)
 
 @app.on_message(filters.regex("فتح الكول"))
