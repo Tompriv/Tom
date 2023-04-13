@@ -1,39 +1,49 @@
+#
+# Copyright (C) 2021-2022 by TeamYukki@Github, < https://github.com/TeamYukki >.
+#
+# This file is part of < https://github.com/TeamYukki/YukkiMusicBot > project,
+# and is released under the "GNU v3.0 License Agreement".
+# Please see < https://github.com/TeamYukki/YukkiMusicBot/blob/master/LICENSE >
+#
+# All rights reserved.
+
 import random
 import string
 from ast import ExceptHandler
-from AnonX.utils.logger import play_logs
-from strings.filters import command
+from AnonX.plugins.play.filters import command
 from pyrogram import filters
-from pyrogram.types import (InlineKeyboardMarkup, InlineKeyboardButton, InputMediaPhoto,
+from pyrogram.types import (InlineKeyboardMarkup, InputMediaPhoto,
                             Message)
 from pytgcalls.exceptions import NoActiveGroupCall
+
 import config
 from config import BANNED_USERS, lyrical
 from strings import get_command
 from AnonX import (Apple, Resso, SoundCloud, Spotify, Telegram,
-                        YouTube, app)                        
+                        YouTube, app)
 from AnonX.core.call import Anon
 from AnonX.utils import seconds_to_min, time_to_seconds
 from AnonX.utils.channelplay import get_channeplayCB
 from AnonX.utils.database import is_video_allowed
 from AnonX.utils.decorators.language import languageCB
-from AnonX.utils.decorators.play import PlayWrapper
+from AnonX.utils.decorators.play import PlayWrapper, PlayWrapperCHH
 from AnonX.utils.formatters import formats
 from AnonX.utils.inline.play import (livestream_markup,
                                           playlist_markup,
                                           slider_markup, track_markup)
-from AnonX.utils.database import is_served_user
 from AnonX.utils.inline.playlist import botplaylist_markup
 from AnonX.utils.logger import play_logs
 from AnonX.utils.stream.stream import stream
 
 # Command
 PLAY_COMMAND = get_command("PLAY_COMMAND")
+PLAY_COMMAND_chn = get_command("PLAY_COMMAND_chh")
 
 
 @app.on_message(
     command(PLAY_COMMAND)
     & filters.group
+    & ~filters.edited
     & ~BANNED_USERS
 )
 @PlayWrapper
@@ -208,7 +218,7 @@ async def play_commnd(
                 and not config.SPOTIFY_CLIENT_SECRET
             ):
                 return await mystic.edit_text(
-                    "ᴛʜɪs ʙᴏᴛ ᴄᴀɴ'ᴛ ᴩʟᴀʏ sᴩᴏᴛɪғʏ ᴛʀᴀᴄᴋs ᴀɴᴅ ᴩʟᴀʏʟɪsᴛs, ᴩʟᴇᴀsᴇ ᴄᴏɴᴛᴀᴄᴛ ᴍʏ ᴏᴡɴᴇʀ ᴀɴᴅ ᴀsᴋ ʜɪᴍ ᴛᴏ ᴀᴅᴅ sᴩᴏᴛɪғʏ ᴩʟᴀʏᴇʀ."
+                    "This bot isn't able to play spotify queries. Please ask my owner to enable spotify."
                 )
             if "track" in url:
                 try:
@@ -329,11 +339,11 @@ async def play_commnd(
                 await Anon.stream_call(url)
             except NoActiveGroupCall:
                 await mystic.edit_text(
-                    "ᴛʜᴇʀᴇ's ᴀɴ ᴇʀʀᴏʀ ɪɴ ᴛʜᴇ ʙᴏᴛ, ᴩʟᴇᴀsᴇ ʀᴇᴩᴏʀᴛ ɪᴛ ᴛᴏ sᴜᴩᴩᴏʀᴛ ᴄʜᴀᴛ ᴀs sᴏᴏɴ ᴀs ᴩᴏssɪʙʟᴇ."
+                    "There's an issue with the bot. Please report it to my owner and ask them to check logger group."
                 )
                 return await app.send_message(
                     config.LOG_GROUP_ID,
-                    "ᴩʟᴇᴀsᴇ ᴛᴜʀɴ ᴏɴ ᴠɪᴅᴇᴏᴄʜᴀᴛ ᴛᴏ sᴛʀᴇᴀᴍ ᴜʀʟ.",
+                    "Please turn on Voice Chat.. Bot is not able to stream urls..",
                 )
             except Exception as e:
                 return await mystic.edit_text(
@@ -398,7 +408,7 @@ async def play_commnd(
                     _,
                     track_id,
                     user_id,
-                    "v" if video else "a",
+                    "ف" if video else "a",
                     "c" if channel else "g",
                     "f" if fplay else "d",
                 )
@@ -496,13 +506,15 @@ async def play_commnd(
                     message, streamtype=f"URL Searched Inline"
                 )
 
+
 @app.on_message(
-    command(PLAY_COMMAND)
+    command(PLAY_COMMAND_chn)
     & filters.channel
+    & ~filters.edited
     & ~BANNED_USERS
 )
-@PlayWrapper
-async def play_commnd(
+@PlayWrapperCHH
+async def play_commnd_chh(
     client,
     message: Message,
     _,
@@ -520,8 +532,9 @@ async def play_commnd(
     slider = None
     plist_type = None
     spotify = None
-    user_id = None
-    user_name = None
+    print(message)
+    user_id = message.chat.id
+    user_name = message.chat.first_name
     audio_telegram = (
         (
             message.reply_to_message.audio
@@ -641,7 +654,7 @@ async def play_commnd(
                     details = await YouTube.playlist(
                         url,
                         config.PLAYLIST_FETCH_LIMIT,
-                        message.from_user.id,
+                        message.chat.id,
                     )
                 except Exception as e:
                     print(e)
@@ -673,7 +686,7 @@ async def play_commnd(
                 and not config.SPOTIFY_CLIENT_SECRET
             ):
                 return await mystic.edit_text(
-                    "ᴛʜɪs ʙᴏᴛ ᴄᴀɴ'ᴛ ᴩʟᴀʏ sᴩᴏᴛɪғʏ ᴛʀᴀᴄᴋs ᴀɴᴅ ᴩʟᴀʏʟɪsᴛs, ᴩʟᴇᴀsᴇ ᴄᴏɴᴛᴀᴄᴛ ᴍʏ ᴏᴡɴᴇʀ ᴀɴᴅ ᴀsᴋ ʜɪᴍ ᴛᴏ ᴀᴅᴅ sᴩᴏᴛɪғʏ ᴩʟᴀʏᴇʀ."
+                    "This bot isn't able to play spotify queries. Please ask my owner to enable spotify."
                 )
             if "track" in url:
                 try:
@@ -694,7 +707,7 @@ async def play_commnd(
                 plist_type = "spplay"
                 img = config.SPOTIFY_PLAYLIST_IMG_URL
                 cap = _["play_12"].format(
-                    message.from_user.first_name
+                    message.chat.first_name
                 )
             elif "album" in url:
                 try:
@@ -705,7 +718,7 @@ async def play_commnd(
                 plist_type = "spalbum"
                 img = config.SPOTIFY_ALBUM_IMG_URL
                 cap = _["play_12"].format(
-                    message.from_user.first_name
+                    message.chat.first_name
                 )
             elif "artist" in url:
                 try:
@@ -716,7 +729,7 @@ async def play_commnd(
                 plist_type = "spartist"
                 img = config.SPOTIFY_ARTIST_IMG_URL
                 cap = _["play_12"].format(
-                    message.from_user.first_name
+                    message.chat.first_name
                 )
             else:
                 return await mystic.edit_text(_["play_17"])
@@ -740,7 +753,7 @@ async def play_commnd(
                 streamtype = "playlist"
                 plist_type = "apple"
                 cap = _["play_13"].format(
-                    message.from_user.first_name
+                    message.chat.first_name
                 )
                 img = url
             else:
@@ -794,11 +807,11 @@ async def play_commnd(
                 await Anon.stream_call(url)
             except NoActiveGroupCall:
                 await mystic.edit_text(
-                    "ᴛʜᴇʀᴇ's ᴀɴ ᴇʀʀᴏʀ ɪɴ ᴛʜᴇ ʙᴏᴛ, ᴩʟᴇᴀsᴇ ʀᴇᴩᴏʀᴛ ɪᴛ ᴛᴏ sᴜᴩᴩᴏʀᴛ ᴄʜᴀᴛ ᴀs sᴏᴏɴ ᴀs ᴩᴏssɪʙʟᴇ."
+                    "There's an issue with the bot. Please report it to my owner and ask them to check logger group."
                 )
                 return await app.send_message(
                     config.LOG_GROUP_ID,
-                    "ᴩʟᴇᴀsᴇ ᴛᴜʀɴ ᴏɴ ᴠɪᴅᴇᴏᴄʜᴀᴛ ᴛᴏ sᴛʀᴇᴀᴍ ᴜʀʟ.",
+                    "Please turn on Voice Chat.. Bot is not able to stream urls..",
                 )
             except Exception as e:
                 return await mystic.edit_text(
@@ -809,10 +822,10 @@ async def play_commnd(
                 await stream(
                     _,
                     mystic,
-                    message.from_user.id,
+                    message.chat.id,
                     url,
                     chat_id,
-                    message.from_user.first_name,
+                    message.chat.first_name,
                     message.chat.id,
                     video=video,
                     streamtype="index",
@@ -863,7 +876,7 @@ async def play_commnd(
                     _,
                     track_id,
                     user_id,
-                    "v" if video else "a",
+                    "ف" if video else "a",
                     "c" if channel else "g",
                     "f" if fplay else "d",
                 )
@@ -894,7 +907,7 @@ async def play_commnd(
             )
             return await mystic.edit_text(err)
         await mystic.delete()
-        return await play_logs2(message, streamtype=streamtype)
+        return await play_logs(message, streamtype=streamtype)
     else:
         if plist_type:
             ran_hash = "".join(
@@ -906,7 +919,7 @@ async def play_commnd(
             buttons = playlist_markup(
                 _,
                 ran_hash,
-                message.from_user.id,
+                message.chat.id,
                 plist_type,
                 "c" if channel else "g",
                 "f" if fplay else "d",
@@ -925,7 +938,7 @@ async def play_commnd(
                 buttons = slider_markup(
                     _,
                     track_id,
-                    message.from_user.id,
+                    message.chat.id,
                     query,
                     0,
                     "c" if channel else "g",
@@ -947,7 +960,7 @@ async def play_commnd(
                 buttons = track_markup(
                     _,
                     track_id,
-                    message.from_user.id,
+                    message.chat.id,
                     "c" if channel else "g",
                     "f" if fplay else "d",
                 )
@@ -960,8 +973,8 @@ async def play_commnd(
                 return await play_logs(
                     message, streamtype=f"URL Searched Inline"
                 )
-                
-                
+
+
 @app.on_callback_query(filters.regex("MusicStream") & ~BANNED_USERS)
 @languageCB
 async def play_music(client, CallbackQuery, _):
@@ -1015,7 +1028,7 @@ async def play_music(client, CallbackQuery, _):
             _["play_15"],
             reply_markup=InlineKeyboardMarkup(buttons),
         )
-    video = True if mode == "v" else None
+    video = True if mode == "ف" else None
     ffplay = True if fplay == "f" else None
     try:
         await stream(
@@ -1047,7 +1060,7 @@ async def play_music(client, CallbackQuery, _):
 async def anonymous_check(client, CallbackQuery):
     try:
         await CallbackQuery.answer(
-            "ʏᴏᴜ'ʀᴇ ᴀɴ ᴀɴᴏɴʏᴍᴏᴜs ᴀᴅᴍɪɴ\n\nʀᴇᴠᴇʀᴛ ʙᴀᴄᴋ ᴛᴏ ᴜsᴇʀ ᴀᴄᴄᴏᴜɴᴛ ғᴏʀ ᴜsɪɴɢ ᴍᴇ.",
+            "You're an Anonymous Admin\n\nGo to your group's setting \n-> Administrators List \n-> Click on your name \n-> uncheck REMAIN ANONYMOUS button there.",
             show_alert=True,
         )
     except:
@@ -1055,7 +1068,7 @@ async def anonymous_check(client, CallbackQuery):
 
 
 @app.on_callback_query(
-    filters.regex("AnonPlaylists") & ~BANNED_USERS
+    filters.regex("YukkiPlaylists") & ~BANNED_USERS
 )
 @languageCB
 async def play_playlists_command(client, CallbackQuery, _):
@@ -1092,7 +1105,7 @@ async def play_playlists_command(client, CallbackQuery, _):
         _["play_2"].format(channel) if channel else _["play_1"]
     )
     videoid = lyrical.get(videoid)
-    video = True if mode == "v" else None
+    video = True if mode == "ف" else None
     ffplay = True if fplay == "f" else None
     spotify = True
     if ptype == "yt":
