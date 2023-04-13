@@ -15,7 +15,9 @@ from pyrogram.errors import MessageNotModified
 
 
 
-@app.on_message(command("الاوامر"))
+@app.on_message(
+    filters.command("الاوامر")
+)
 async def cr_source(client: Client, message: Message):
     await message.reply_photo(
         photo=f"https://graph.org/file/c973727bddf803e028539.jpg",
@@ -92,6 +94,7 @@ async def cr_usage(_, callback_query: CallbackQuery):
     await callback_query.answer()
     await callback_query.message.edit_text(
         text="""**⩹━★⊷⌯⌞ 𝘾𝙍 • 𝙎𝙊𝙐𝙍𝘾𝙀 ⌝⌯⊶★━⩺**
+★¦ اهلا بك عزيزي في قسم اوامر التشغيل في القنوات
 ★¦ شغل + اسم الاغنيه
 ★¦ قناه + اسم الاغنيه
 ★¦ مانو + اسم الاغنيه
@@ -121,6 +124,7 @@ async def cr_usage(_, callback_query: CallbackQuery):
     await callback_query.answer()
     await callback_query.message.edit_text(
         text="""**⩹━★⊷⌯⌞ 𝘾𝙍 • 𝙎𝙊𝙐𝙍𝘾𝙀 ⌝⌯⊶★━⩺**
+★¦ اهلا بك عزيزي في قسم اوامر تشغيل الادمن
 ★¦ رفع ثانوي
 ★¦ تنزيل ثانوي
 ★¦ قائمة الثانويين
