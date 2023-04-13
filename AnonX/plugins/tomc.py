@@ -9,7 +9,7 @@ from pytgcalls.exceptions import (NoActiveGroupCall,TelegramServerError)
 
 @app.on_message(filters.regex("فتح الكول"))
 async def start_call(client, message):
-    assistant = await group_assistant(Yukki, message.chat.id)
+    assistant = await group_assistant(Anon, message.chat.id)
     if await is_call_active(message.chat.id):
         await message.reply("محادثة صوتية مفتوحة بالفعل")
         return
