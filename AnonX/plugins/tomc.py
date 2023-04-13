@@ -4,8 +4,22 @@ import asyncio
 from pytgcalls import PyTgCalls, StreamType
 from pytgcalls.types.input_stream import AudioPiped, AudioVideoPiped
 from AnonX.core.call import Anon
-from AnonX.utils.database import is_call_active, add_active_call, remove_active_call
 from pytgcalls.exceptions import (NoActiveGroupCall,TelegramServerError)
+from AnonX.utils.database import db
+
+async def is_call_active(chat_id: int) -> bool:
+    group_call = db.active_calls.get(str(chat_id))
+    return group_call is not None
+
+async def add_active_call(chat_id: int, call: GroupCall) -> None:
+    db.active_calls[str(chat_id)] = {
+        "chat_id": chat_id,
+        "voice_chat_id": call.voice_chat.id,
+        "voice_chat_discussion": call.voice_chat_discussion.id
+    }
+
+async def remove_active_call(chat_id: int) -> None:
+    del db.active_calls[str(chat_id)]
 
 @app.on_message(filters.regex("فتح الكول"))
 async def start_call(client, message):
