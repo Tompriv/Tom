@@ -65,6 +65,7 @@ async def cr_usage(_, callback_query: CallbackQuery):
 ★¦ /play + اسم الاغنيه
 ★¦ #تشغيل + اسم الاغنيه
 ★¦ فيديو + اسم الاغنيه
+★¦ سورة + اسم السورة 
 ★¦ cvplayforce + اسم الاغنيه
 ★¦ cplayforce + اسم الاغنيه
 ★¦ vplayforce + اسم الاغنيه
