@@ -16,7 +16,7 @@ LANGUAGE_COMMAND : ["lang", "language", "langs", "لغه", "اللغه"]
 
 # Play Commands
 PLAY_COMMAND : ["play", "vplay", "cplay", "/cvplay", "playforce", "vplayforce", "cplayforce", "cvplayforce", "تشغيل", "شغل", "فيديو", "#تشغيل", "/play", "/vplay", "cplay", "cvplay", "/شغل", "/تشغيل", "/ق تشغيل", "/ق شغل", "/فيديو", "تشغيل/", "{NAME_BOT}", "#فيديو", "#فديو", "فديو"]
-PLAY_COMMAND_chh : ["تشغيل", "فيديو"]
+PLAY_COMMAND_chh : ["اغاني"]
 STOP_COMMAND_chh : ["ايقاف"]
 PLAYMODE_COMMAND : ["playmode", "/وضع شغل", "وضع شغل", "/playmode"]
 CHANNELPLAY_COMMAND : ["channelplay", "قناه"]
