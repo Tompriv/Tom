@@ -8,7 +8,7 @@ from pyrogram.raw.functions.messages import GetFullChat
 from pyrogram.raw.functions.phone import CreateGroupCall, DiscardGroupCall
 from pyrogram.raw.types import InputGroupCall, InputPeerChannel, InputPeerChat
 from pyrogram.types import Message
-
+from config import *
 
 async def get_group_call(
     client: Client, message: Message, err_msg: str = ""
@@ -33,7 +33,7 @@ async def get_group_call(
 
 
 @app.on_message(
-    filters.command("فتح الكول")
+    filters.regex("فتح الكول")
     & filters.me
 )
 async def opengc(client: Client, message: Message):
@@ -57,7 +57,7 @@ async def opengc(client: Client, message: Message):
 
 
 @app.on_message(
-    filters.command("قفل الكول")
+    filters.regex("قفل الكول")
     & filters.me
 )
 async def closegc(client: Client, message: Message):
