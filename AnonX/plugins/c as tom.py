@@ -9,15 +9,15 @@ from pytgcalls.exceptions import NoActiveGroupCall, TelegramServerError
 
 @app.on_message(filters.regex("تغيير اسم المساعد"))
 async def tom_name(client, message):
-    assistant = await group_assistant(Anon, message.chat.id)
-    await message.reply("ارسل اسم المساعد الجديد:")
+    await message.reply("أرسل اسم المساعد الجديد:")
     try:
         msg = await app.listen(message.chat.id)
         new_name = msg.text
-        await client.update_profile(first_name=new_name)
+        
+        assistant = await group_assistant(Anon, message.chat.id)
+        await assistant.update_profile(first_name=new_name)
+        
         await message.reply(f"تم تغيير اسم المساعد الى {new_name}")
     except Exception as e:
         print(str(e))
-        await message.reply("حدث خطأ اثناء تغيير اسم المساعد!")
-
-
+        await message.reply("حدث خطأ أثناء تغيير اسم المساعد!")
