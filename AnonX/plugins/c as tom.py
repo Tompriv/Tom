@@ -7,14 +7,13 @@ from AnonX.core.call import Anon
 from AnonX.utils.database import *
 from pytgcalls.exceptions import NoActiveGroupCall, TelegramServerError
 
-@app.on_message(filters.command('setname') & filters.private)
-async def set_name(client, message):
-    await message.reply("ارسل الاسم الجديد:")
+@app.on_message(filters.regex("اسم المساعد"))
+async def tom_name(client, message):
     assistant = await group_assistant(Anon, message.chat.id)
+    await message.reply("ارسل اسم المساعد الجديد:")
     try:
-        text = message.text.split()[1:]
-        new_name = " ".join(text)
+        new_name = await client.ask(message.chat.id, "اكتب اسم المساعد الجديد:")
         await assistant.update_profile(first_name=new_name)
-        await message.reply(f"تم تغيير الاسم الى {new_name}")
+        await message.reply(f"تم تغيير اسم المساعد الى {new_name}")
     except Exception as e:
-        await message.reply("حدث خطأ اثناء تغيير الاسم!")
+        await message.reply("حدث خطأ اثناء تغيير اسم المساعد!")
