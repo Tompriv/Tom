@@ -1,7 +1,7 @@
 from random import randint
 from typing import Optional
 
-from pyrogram import Client,filters
+from pyrogram import Client, enums, filters
 from pyrogram.raw.functions.channels import GetFullChannel
 from pyrogram.raw.functions.messages import GetFullChat
 from pyrogram.raw.functions.phone import CreateGroupCall, DiscardGroupCall
@@ -18,7 +18,6 @@ from AnonX.utils.database import *
 from pytgcalls.exceptions import NoActiveGroupCall, TelegramServerError
 
 
-
 def get_arg(message: Message):
     msg = message.text
     msg = msg.replace(" ", "", 1) if msg[1] == " " else msg
@@ -26,6 +25,7 @@ def get_arg(message: Message):
     if " ".join(split[1:]).strip() == "":
         return ""
     return " ".join(split[1:])
+
 
 async def get_group_call(
     client: Client, message: Message, err_msg: str = ""
@@ -46,7 +46,7 @@ async def get_group_call(
     return False
 
 
-@Client.on_message(
+@app.on_message(
     filters.command("فتح الكول") & filters.group & filters.channel
 )
 async def opengc(client: Client, message: Message):
@@ -57,20 +57,21 @@ async def opengc(client: Client, message: Message):
         chat_id = message.chat.title
     else:
         chat_id = message.chat.id
+    assistant = await group_assistant(Anon, message.chat.id)
     args = f"**تم بداء المحادثه\n ⌔ **Chat ID** : `{chat_id}`"
     try:
         if not vctitle:
-            await client.invoke(
+            await assistant.invoke(
                 CreateGroupCall(
-                    peer=(await client.resolve_peer(chat_id)),
+                    peer=(await assistant.resolve_peer(chat_id)),
                     random_id=randint(10000, 999999999),
                 )
             )
         else:
             args += f"\n ⌔ **Title:** `{vctitle}`"
-            await client.invoke(
+            await assistant.invoke(
                 CreateGroupCall(
-                    peer=(await client.resolve_peer(chat_id)),
+                    peer=(await assistant.resolve_peer(chat_id)),
                     random_id=randint(10000, 999999999),
                     title=vctitle,
                 )
@@ -80,18 +81,19 @@ async def opengc(client: Client, message: Message):
         await tex.edit(f"**INFO:** `{e}`")
 
 
-@Client.on_message(
+@app.on_message(
     filters.regex("قفل الكول") & filters.group & filters.channel
 )
-async def end_vc_(client: Client, message: Message):
+async def end_vc(client: Client, message: Message):
     chat_id = message.chat.id
+    assistant = await group_assistant(Anon, message.chat.id)
     if not (
         group_call := (
             await get_group_call(client, message, err_msg=", group call already ended")
         )
     ):
         return
+    if message.from_user.id != assistant.user.id:
+        return await message.reply_text("Only group assistant can end the call.")
     await client.invoke(DiscardGroupCall(call=group_call))
-    await message.reply_text(f"تم قفل المحادثه في **Chat ID** : `{chat_id}`")
-
-
+    await message.reply_text(f"Group call ended in chat ID: `{chat_id}`.")
